@@ -1,0 +1,3 @@
+# Ignore mas file sistems 
+.DS_store
+node_modules/
