@@ -10,13 +10,14 @@ class CalcController {
         this.initButtonsEvents();
        
     }
-
+    //start display
     initialize(){
 
         this.setLastNumberToDisplay();
 
     }
 
+    // recebe os eventos dos botões
     addEventListenerAll(element, events, fn){
 
         events.split(' ').forEach(event =>{
@@ -27,6 +28,7 @@ class CalcController {
 
     }
 
+    // clear all data
     clearAll(){
 
         this._operation = [];
@@ -37,6 +39,7 @@ class CalcController {
 
     }
 
+    //clear last entrence
     clearEntry(){
 
         this._operation.pop();
@@ -44,15 +47,15 @@ class CalcController {
         this.setLastNumberToDisplay();
 
     }
-
+    // get last operation
     getLastOperation(){
-   
+        
         return this._operation[this._operation.length-1];
-
+        
     }
-
+    // set the result of the last operation
     setLastOperation(value){
-
+        
         this._operation[this._operation.length-1] = value;
         
     }
@@ -63,7 +66,7 @@ class CalcController {
     }
 
     pushOperation(value){
-
+        
         this._operation.push(value);
 
         if (this._operation.length > 3) {
@@ -125,11 +128,13 @@ class CalcController {
 
         let lastItem;
         
+        
         for (let i = this._operation.length-1; i >= 0; i--){
 
             if (this.isOperator(this._operation[i]) == isOperator){
 
                 lastItem = this._operation[i];
+                
 
                 break;
             }
@@ -177,7 +182,8 @@ class CalcController {
 
             } else {
 
-            let newValue = this.getLastOperation().toString() + value.toString();
+            let newValue1 = this.getLastOperation().toString() + value.toString();
+            let newValue = parseInt(newValue1);
             
             this.setLastOperation(newValue);
 
@@ -212,6 +218,9 @@ class CalcController {
 
        this.setLastNumberToDisplay();
     }
+
+   
+    
 
     execBtn(value){
 
